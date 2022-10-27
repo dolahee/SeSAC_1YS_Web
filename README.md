@@ -1,4 +1,3 @@
-# SeSAC_1YS_do
+# SeSAC_1YS_Web
 
 박도희
-
