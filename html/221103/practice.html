@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div>
+    <p>값1: <input type="number" id="input1"> </p>
+    <p>값2: <input type="number" id="input2"> </p>
+    <p>연산자: <input type="text" id="input3"> </p>
+    <p>결과: <input type="number" id="input4"> </p>
+
+    <button type="button" onclick="calculation()">계산하기</button>
+    <button type="button" onclick="initialization()">초기화</button>
+   </div> 
+    
+   <script>
+
+    function calculation(){
+
+    var input1 = Number (document.getElementById("input1").value);
+    var input2 = Number (document.getElementById("input2").value);
+    var input3 = document.getElementById("input3").value;
+    var input4 = document.getElementById("input4");
+    input4.value = input1+ input2;
+
+        if (input3 === "+"){
+            input4 = input1 + input2;
+
+        } else if(input3 === "-"){
+            input4 = input1 - input2;
+
+        } else if(input3 === "*"){
+            input4 = input1 * input2;
+
+        } else if(input3 === "/"){
+            input4 = input1 / input2;
+        }
+
+        console.log(input4);
+ 
+    }
+    function initialization(){
+
+    }
+
+   </script>
+</body>
+</html>
