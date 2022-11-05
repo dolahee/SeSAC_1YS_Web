@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header style="position:relative;  background-color: #5451; display: flex; align-items: center; justify-content: center;">
+        <div style="display: flex; align-items: center;">
+            <img src="https://cdn-icons-png.flaticon.com/512/1404/1404945.png" width="100" height="100" > 
+            <h1>
+                피자 주문
+            </h1>
+            <img src="https://cdn-icons-png.flaticon.com/512/1404/1404945.png" width="100" height="100" > 
+        </div>
+    </header>
+    <div style="margin-top: 50px;">
+        <div style="border: 1px solid black; padding: 10px; position: relative;">  <h5 style="position:absolute; top: -30px; background-color: white;" >사이즈</h5> Large - 24000 원
+        </div>
+    </div>
+    <div  style="margin-top: 50px;">
+        <div style="border: 1px solid black; padding: 10px; position: relative;">  <h5 style="position:absolute; top: -30px; background-color: white;" >추가주문</h5>
+            <input type="checkbox" id="pickle" onchange="pickle() " style="accent-color: red;" > 피클 (800원)
+            <input type="checkbox" id="chiliSauce"onchange="pickle()" style="accent-color: red;"> 칠리 소스 (300원)
+            <input type="checkbox" id="dippingSauce"onchange="pickle()" style="accent-color: red;"> 디핑 소스 (200원)
+            <input type="checkbox" id="cheeseStick"onchange="pickle()" style="accent-color: red;"> 치즈 스틱 (4개, 4800원)
+            <input type="checkbox" id="cornSalad"onchange="pickle()"style="accent-color: red;"> 콘 샐러드 (2400원)
+        </div>
+    </div>
+
+    <div  style="margin-top: 50px;">
+        <div style="border: 1px solid black; padding: 10px; position: relative;">  <h5 style="position:absolute; top: -30px; background-color: white;" >합계</h5>
+         <strong>  <p id="total"></p> </strong> 
+        </div>
+    </div>
+
+    <script>
+      
+
+        var p = 800;
+        var c = 300;
+        var d = 200;
+        var ch = 4800;
+        var co = 2400;
+        var l = 24000;
+        var w = "원";
+        
+
+        function pickle() {
+            var pickle = document.getElementById("pickle").checked;
+            var chiliSauce = document.getElementById ("chiliSauce").checked;
+            var dippingSauce = document.getElementById ("dippingSauce").checked;
+            var cheeseStick = document.getElementById ("cheeseStick").checked;
+            var cornSalad = document.getElementById ("cornSalad").checked;
+            var total = document.getElementById("total");
+            total = 0;
+            
+
+            if (pickle === true){
+                total = p + total;
+            } if (chiliSauce === true){
+                total = c + total;
+            } if (dippingSauce === true) {
+                total = d + total;
+            } if (cheeseStick === true) {
+                total = ch + total;
+            } if (cornSalad === true) {
+                total = co + total;
+            }
+            
+            document.getElementById("total").innerText = total + l + w;
+        }
+
+    </script>
+</body>
+</html>
