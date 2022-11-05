@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous">
+    </script>
+    <script src="./jquery-ui-1.13.2/jquery-ui.js"></script>
+    <link href="./jquery-ui-1.13.2/jquery-ui.css">
+
+    <style>
+
+         div { width: 500px; height: 500px;}
+         
+        .apple{
+            background-image: url(https://w.namu.la/s/96f05e961ab1169f6f0ef41902388df4832baabd91f44e79ad4b83a2eb53439831f02378ce10fe4073f627f25ac31fcfe3de93161fc5d171902c77b9159aa9173c74a5dddf2280657228f3f3a18825044438ac9463946043910406e0665b16d077b928376e6935f60283d04e2716a0e2);
+        
+        }
+        .banana{
+            background-image: url(https://dimg.donga.com/wps/NEWS/IMAGE/2022/04/19/112966942.2.jpg);
+        }
+        
+        .grape{
+            background-image: url(http://img.segye.com/content/image/2017/08/30/20170830515039.jpg);
+        }
+
+        .p {
+            background-image: url(https://www.jaseng.org/files/imageView.do?key=ef3e7f41-a641-407b-b874-16a9ae830882);
+        }
+
+
+    </style>
+
+    <script>
+            function apple() {
+            $("div").switchClass("first","apple", 2000);
+            
+        }
+        function banana() {
+            $("div").switchClass("apple","banana", 2000);
+            
+        }
+
+        function grape() {
+            $("div").switchClass("banana","grape", 2000);
+            
+        }
+
+        function p() {
+            $("div").switchClass("grape","p", 2000);
+            
+        }
+
+    </script>
+
+<div class="first"><img style="width: 500px; height: 500px;" ></div>
+
+<button type="button" class="btn btn-outline-dark" onclick="apple()">사과</button>
+<button type="button" class="btn btn-outline-dark"onclick="banana()">바나나</button>
+<button type="button" class="btn btn-outline-dark"  onclick="grape()">포도</button>
+<button type="button" class="btn btn-outline-dark" onclick="p()">복숭아</button>
+
+
+
+    
+</body>
+</html>

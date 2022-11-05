@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous">
+    </script>
+
+<script>
+      function getData() {
+            var value2 = $("#input1").value;
+            console.log(value2);
+        }
+        
+        function setData() {
+            $("#input1").val("hello");
+            
+        } 
+
+        function setstyle1() {
+            var p = document.querySelector("#p1");
+            p.style = " background-color: yellow; color: blue; "
+        } 
+
+        function setstyle2() {
+            $("#p1").css("background-color","red");
+            
+        }
+
+        function append1 () { // 추가
+            $("#p1").append("<h1>h1태그입니다.</h1>");
+        }
+
+        function prepend() {
+            $("#ul").prepend("<li> prepend </li>");
+        }
+
+        function befoer() { // 뒤에 추가
+            $("#ul").befoer("");
+        }
+
+        function after1() { // 앞에 추가
+            $("#ul").after("");
+        }
+
+        function remove1() { //삭제
+            $("#ul").remove("");
+        }
+
+         function empty() { // 나 자신을 포함한 모든 삭제
+            $("#ul").empty("");
+        }
+
+        function parent(){
+            $("#").parent().append("");
+        }
+        
+</script>
+
+    <button type="button" onclick="append1()"> 요소 추가하기 </button>
+    <button type="button" onclick="parent()"> 요소 탐색 </button>
+    <input type="text" id="input1">
+    <p id="p1">p태그입니다.</p>
+    <button type="button" onclick="getData()"> 값 가져오기 </button>
+    <button type="button" onclick="setData()"> 값 설정하기 </button>
+    <button type="button" onclick="setstyle1()"> 자바스크립트로 바꾸기 </button>
+    <button type="button" onclick="setstyle2()"> 제이쿼리로 바꾸기 </button>
+
+
+</body>
+</html>
