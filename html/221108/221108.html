@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+    ></script>
+    <script src="../221105/jquery-ui-1.13.2/jquery-ui.js"></script>
+    <link href="../221105/jquery-ui-1.13.2/jquery-ui.css" />
+  </head>
+  <body>
+    body 태그
+    <div
+      style="width: 100px; height: 100px; background-color: yellow"
+      id="div1"
+    ></div>
+    <input type="text" id="input1" />
+    <p id="alert"></p>
+    <script>
+      $("#input1").keydown(function (e) {
+        $("#alert").text("글자가 입력됨," + e.currentTarget.value);
+        console.log("input keydown");
+        if (e.keyCode == 3) {
+          console.log("enter key");
+        }
+      });
+
+      $("#input1").keyup(function (e) {
+        console.log("input keyup");
+      });
+
+      $("#input1").keypress(function (e) {
+        console.log("input keypress");
+      });
+
+      // $(document).ready(function () {
+      //     alert("document.ready");
+      // });
+
+      // $(function(){
+      //     alert("ready")
+      // });
+
+      // $("#div1").click(function(e) {
+      //     console.log("div click");
+      //     console.log("e : " , e);
+
+      // });
+
+      // $("#div1").mouseover(function(){
+      //     console.log( "div mouseover");
+
+      // });
+
+      // $("#div1").hover(function(){
+      //     console.log("div hover");
+
+      // }, function() {
+      //     console.log("div hover2");
+
+      //         });
+
+      //         $(window).scroll(function(){
+      //             console.log("window scroll");
+      //         })
+    </script>
+  </body>
+</html>

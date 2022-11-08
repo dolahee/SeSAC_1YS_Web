@@ -1,71 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <style>
-        table {
-          width: 100%;
-          border: 1px solid #444444;
-          border-collapse: collapse;
-        }
-        th, td {
-          border: 1px solid #444444;
-          padding: 10px;
-        }
-      </style>
+      table {
+        width: 100%;
+        border: 1px solid #444444;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #444444;
+        padding: 10px;
+      }
+    </style>
     <div>
-        <h1>방명록입니다.</h1>
-        <p>작성자: <input type="text" id="input1"> </p>
-        <p>내용: <input type="text" id="input2"> </p>
-        <button type="button" onclick="writen()">작성하기</button>
-       </div> 
-       <table>
-        <thead>
-          <tr>
-            <th>번호</th>
-            <th>작성자</th>
-            <th>내용</th>
-            <th>작성일</th>
-          </tr>
-        </thead>
-        <tbody id="tbody">
-        </tbody>
-       </table>
-       <script>
+      <h1>방명록입니다.</h1>
+      <p>작성자: <input type="text" id="input1" /></p>
+      <p>내용: <input type="text" id="input2" /></p>
+      <button type="button" onclick="writen()">작성하기</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>작성자</th>
+          <th>내용</th>
+          <th>작성일</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <script>
+      var number = 1;
 
-             var number = 1;
+      function writen() {
+        var name = document.getElementById("input1").value;
+        var p = document.getElementById("input2").value;
+        var tr = document.createElement("tr");
+        var tdName = document.createElement("td");
+        var tdDate = document.createElement("td");
+        var tdP = document.createElement("td");
+        var tbody = document.getElementById("tbody");
+        var tdNumber = document.createElement("td");
+        var date = new Date();
 
-        function writen(){
-            var name = document.getElementById("input1").value;
-            var p = document.getElementById("input2").value;
-            var tr = document.createElement("tr");
-            var tdName = document.createElement("td");
-            var tdDate = document.createElement("td");
-            var tdP = document.createElement("td");
-            var tbody = document.getElementById("tbody");
-            var tdNumber = document.createElement("td");
-            var date = new Date ();
-            
-            tdNumber.append(number++);
-            tr.append( tdNumber);
-            tdName.append(name);
-            tr.append(tdName);
-            tdP.append(p);
-            tr.append(tdP);
-            tdDate.append(date);
-            tr.append(tdDate);
-            tbody.append(tr);
-
-
-            
-        }
-
-       </script>
-</body>
+        tdNumber.append(number++);
+        tr.append(tdNumber);
+        tdName.append(name);
+        tr.append(tdName);
+        tdP.append(p);
+        tr.append(tdP);
+        tdDate.append(date);
+        tr.append(tdDate);
+        tbody.append(tr);
+      }
+    </script>
+  </body>
 </html>
