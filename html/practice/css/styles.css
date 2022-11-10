@@ -1,0 +1,51 @@
+.wrap {
+  height: 100vh;
+  position: relative;
+}
+
+.wrap > .btn_shop {
+  right: 30px;
+  bottom: 30px;
+  position: fixed;
+}
+.cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 30px;
+  height: 10px;
+  transform: translate(-50%, -50%);
+
+  /** 마우스 무시*/
+  pointer-events: none;
+}
+.imgID {
+  width: 100%;
+  height: 100%;
+}
+
+/** 버튼 스타일 삭제 */
+button {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/** 메인이미지*/
+
+.mainImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.changeImg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
