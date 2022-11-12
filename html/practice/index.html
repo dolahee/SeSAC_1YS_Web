@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.css"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -26,7 +33,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg bg-light">
+      <nav class="navbar fixed-top navbar-expand-lg bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"
             ><img style="width: 50px" src="./img/homeImg.png"
@@ -99,16 +106,27 @@
     </header>
 
     <!-- 메인 화면 -->
-    <div class="wrap">
-      <img class="mainImg" src="./img/mainImg.png" />
-      <img class="changeImg" src="./img/changeImg.jpg" />
-      <img class="changeImg2" src="./img/changeImg2.jpg" />
+    <div id="fullpage">
+      <div class="section"><img class="mainImg" src="./img/mainImg.png" /></div>
 
+      <div class="section">
+        <img class="changeImg" src="./img/changeImg.jpg" />
+      </div>
+      <div class="section">
+        <img class="changeImg2" src="./img/changeImg2.jpg" />
+      </div>
+      <div class="section">
+        <img class="changeImg3" src="./img/changeImg3.jpg" />
+      </div>
+    </div>
+
+    <div class="wrap">
       <!-- 스크롤 위로가는 버튼 -->
       <button type="button" class="btn_shop">
         <img src="./img/topButton.png" alt="" />
       </button>
     </div>
+    <!-- 갤러리 -->
     <div style="margin-top: 50px" class="row row-cols-1 row-cols-md-2 g-4">
       <div class="col">
         <div class="card">

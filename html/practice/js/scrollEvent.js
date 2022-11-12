@@ -1,41 +1,83 @@
-// $(document).ready(함수)는
-// 문서가 준비가 되었을때, 즉 브라우저에서 '문서'가 정상적으로 열린 후에
-// "함수"를 실행 시켜 줍니다.
-// 그래서 중복으로 사용할 필요가 없이 한번 선언해주고 쭉 넣으시면 됩니다.
-$(document).ready(function () {
-  $(".changeImg").hide();
-  $(".changeImg2").hide();
+new fullpage("#fullpage", {
+  //이동
+  menu: "#menu",
+  lockAnchors: false,
+  anchors: ["firstPage", "secondPage"],
+  navigation: false,
+  navigationPosition: "right",
+  navigationTooltips: ["firstSlide", "secondSlide"],
+  showActiveTooltip: false,
+  slidesNavigation: false,
+  slidesNavPosition: "bottom",
 
-  $(window).on("wheel", function (event) {
-    // 시작
-    // var mainImg = "mainImg.png";
-    // var changeImg = "changeImg.jpg";
-    // var changeImg2 = "changeImg2.jpg";
+  //스크롤
+  css3: true,
+  scrollingSpeed: 700,
+  autoScrolling: true,
+  fitToSection: true,
+  fitToSectionDelay: 1000,
+  scrollBar: false,
+  easing: "easeInOutCubic",
+  easingcss3: "ease",
+  loopBottom: false,
+  loopTop: false,
+  loopHorizontal: true,
+  continuousVertical: false,
+  continuousHorizontal: false,
+  scrollHorizontally: false,
+  interlockedSlides: false,
+  dragAndMove: false,
+  offsetSections: false,
+  resetSliders: false,
+  fadingEffect: false,
+  normalScrollElements: "#element1, .element2",
+  scrollOverflow: false,
+  scrollOverflowReset: false,
+  scrollOverflowOptions: null,
+  touchSensitivity: 15,
+  bigSectionsDestination: null,
 
-    var Y = event.originalEvent.deltaY;
-    var current = "main";
+  //접근성
+  keyboardScrolling: true,
+  animateAnchor: true,
+  recordHistory: true,
 
-    // if (Y > 0) {
-    //   console.log("스크롤 내려감");
-    //   if (current === "main") {
-    //     $(".changeImg").show();
-    //     $(".mainImg").hide();
-    //     $(".changeImg2").hide();
-    //     // 활성화된 이미지를 바꿈
-    //     current = "change";
-    //   }
+  //디자인
+  controlArrows: true,
+  verticalCentered: true,
+  sectionsColor: ["#ccc", "#fff"],
+  paddingTop: "3em",
+  paddingBottom: "10px",
+  fixedElements: "#header, .footer",
+  responsiveWidth: 0,
+  responsiveHeight: 0,
+  responsiveSlides: false,
+  parallax: false,
+  parallaxOptions: {
+    type: "reveal",
+    percentage: 62,
+    property: "translate",
+  },
+  cards: false,
+  cardsOptions: {
+    perspective: 100,
+    fadeContent: true,
+    fadeBackground: true,
+  },
 
-    //   if (current === "change") {
-    //     $(".changeImg2").show();
-    //     $(".mainImg").hide();
-    //     $(".changeImg").hide();
-    //     // 활성화된 이미지를 바꿈
-    //     current = "change2";
-    //   }
-    // } else {
-    //   console.log("스크롤 올라감");
-    //   // $(".mainImg").fadeIn();
-    //   // $(".changeImg").fadeOut();
-    // }
-  }); // 끝
+  //맞춤 선택자
+  sectionSelector: ".section",
+  slideSelector: ".slide",
+
+  lazyLoading: true,
+
+  //사건(이벤트)
+  onLeave: function (origin, destination, direction) {},
+  afterLoad: function (origin, destination, direction) {},
+  afterRender: function () {},
+  afterResize: function (width, height) {},
+  afterReBuild: function () {},
+  afterResponsive: function (isResponsive) {},
+  afterSlideLoad: function (section, origin, destination, direction) {},
+  onSlideLeave: function (section, origin, destination, direction) {},
 });
