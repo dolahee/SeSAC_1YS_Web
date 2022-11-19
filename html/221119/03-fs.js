@@ -33,13 +33,3 @@ fs2.writeFile("./sesac.txt", "반갑습니다").then(function () {
     fs2.rename("./sesac2.txt", "new.txt").then(() => {});
   });
 });
-
-const fs3 = require("fs").promises;
-
-fs3.writeFile("./sesac.txt", "반갑습니다").then(function () {
-  return fs3.readFile("./sesac.txt").then(function (data) {
-    console.log(data.toString());
-    fs3.copyFile("./sesac.txt", "./sesac2.txt").then(() => {});
-    fs3.rename("./sesac2.txt", "new.txt").then(() => {});
-  });
-});
