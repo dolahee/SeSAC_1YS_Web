@@ -31,3 +31,19 @@ app.get("/ejs", (req, res) => {
 app.listen(port, () => {
   console.log("Server port:", port);
 });
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.get("/form", (req, res) => {
+  res.render("form");
+});
+
+app.get("/getForm", (req, res) => {
+  console.log(req.query); // 주소 물음표 뒤에 나오는 것들이 모두 쿼리
+  res.send("get 요청 성공");
+});
+
+app.post("/postForm", (req, res) => {
+  console.log(req.body); // post는 body에 정보가 담겨오기 때문에 바꿔야 한다.
+  res.send("post 요청 성공");
+});
