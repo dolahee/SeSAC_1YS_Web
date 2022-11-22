@@ -3,6 +3,8 @@ const app = express();
 const port = 8080;
 
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use("/public", express.static("staic"));
 // 실제 존재하는 폴더에 퍼블릭 경로로 접근할 수 있도록 함
 // src="/public/img/dog.jpg"
@@ -32,8 +34,6 @@ app.listen(port, () => {
   console.log("Server port:", port);
 });
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 app.get("/form", (req, res) => {
   res.render("form");
 });
@@ -45,5 +45,5 @@ app.get("/getForm", (req, res) => {
 
 app.post("/postForm", (req, res) => {
   console.log(req.body); // post는 body에 정보가 담겨오기 때문에 바꿔야 한다.
-  res.send("post 요청 성공");
+  res.render("result", { data: req.body });
 });
