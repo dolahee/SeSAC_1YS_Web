@@ -7,14 +7,8 @@
     <title><%=title%></title>
   </head>
   <body>
-    ejs 파일로 만든 html
-    <!-- <img width="500" height="800" src="/public/img/dog.jpg" /> -->
     <% for(var i = 0; i < data.length; i++) { %>
-    <div>안녕<%=data[i]+1%></div>
+    <div><img style="width: 500" height="500" src="<%-data[i]%>" /></div>
     <% } %>
-    <div style="color: red"><%="<span>안녕</span>"%>하세요</div>
-    <div style="color: red"><%-"<span>안녕</span>"%>하세요</div>
-
-    <%-include("test.ejs")%>
   </body>
 </html>

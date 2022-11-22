@@ -22,7 +22,10 @@ app.get("/test", (req, res) => {
 
 //localhost:8080/ejd
 app.get("/ejs", (req, res) => {
-  res.render("index");
+  res.render("index", {
+    title: "index페이지입니다.",
+    data: ["a", "b", "c"],
+  });
 });
 
 app.listen(port, () => {
