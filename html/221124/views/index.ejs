@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="[https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js](https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js)"></script>
+  </head>
+  <body>
+    <script>
+      function sendGet() {
+        //axios get을 이용한 통신
+        var form = document.getElementById("form_info");
+        // form.name.value
+        // form.age.value
+        axios({
+          methond: "get",
+          url: "/form",
+          params: { name: form.name.value },
+        }).then(function (res) {
+          alert("이름은!" + form.name.value);
+        });
+      }
+    </script>
+
+    <button type="button" onclick="sendGet();">get전송</button>
+    <button type="button" onclick="sendPost();">post전송</button>
+    <form id="form_info">
+      <input type="text" name="name" />
+    </form>
+  </body>
+</html>
