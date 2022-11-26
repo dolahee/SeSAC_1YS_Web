@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  
+    <script>
+      function sendPost() {
+        var form = document.getElementById("form_info");
+        var formData = new FormData()
+        formData.append("name", form.name.value)
+        formData.append("userfile", form.userfile.files[0])
+        
+        axios({
+          method: "post",
+          url: "/02-practuce",
+          headers : {
+            "Content-type" : "multipart/form-data"
+          },
+          data: formData,
+        }).then(function (res) {
+          document.querySelector("#result").innerHTML = res.data;
+        });
+      }
+    </script>
+
+    <form
+      action="/02-practuce"
+      method="post"
+      enctype="multipart/form-data"
+      id="form_info"
+    >
+      <fieldset>
+        <legend>개인정보</legend>
+        아이디: <input type="text" name="id" id="id" /> <br /> 
+        비밀번호: <input type="password" name="pw" />
+        <br />
+        이름: <input type="text" name="name"  id="name" /> <br />
+        나이: <input type="number" name="age" />
+      </fieldset>
+      <input type="file" name="userfile" />
+      <button type="reset">리셋</button>
+      <button type="button" onclick="sendPost()" ;>회원가입</button>
+    </form>
+    <div id="result" ></div>
+  </body>
+</html>
