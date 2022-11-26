@@ -26,7 +26,7 @@ app.use(express.json());
 // });
 
 // 실습1
-app.use("/public", express.static("staic"));
+// app.use("/public", express.static("staic"));
 
 // const upload = multer({
 //   storage: multer.diskStorage({
@@ -55,7 +55,7 @@ app.use("/public", express.static("staic"));
 // ↑실습
 
 //실습2
-
+app.use("/public", express.static("staic"));
 const upload = multer({
   storage: multer.diskStorage({
     destination(req, file, done) {
