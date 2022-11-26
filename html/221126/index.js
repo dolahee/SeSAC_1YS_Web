@@ -1,14 +1,58 @@
 const express = require("express");
 const multer = require("multer");
+const path = require("path");
 const app = express();
 const port = 8080;
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ exrended: true }));
 app.use(express.json());
+
+// const upload = multer({
+//   dest: "uploads/",
+// });
+
+// const upload = multer({
+//   storage: multer.diskStorage({
+//     destination(req, file, done) {
+//       done(null, "uploads/");
+//     },
+//     filename(req, file, done) {
+//       console.log("file name :", req.body);
+//       const ext = path.extname(file.originalname);
+//       const filename = req.body.name + ext;
+//     },
+//   }),
+// });
+
+// 실습
+app.use("/public", express.static("staic"));
+
 const upload = multer({
-  dest: "uploads/",
+  storage: multer.diskStorage({
+    destination(req, file, done) {
+      done(null, "staic/img/");
+    },
+    filename(req, file, done) {
+      console.log("filename : ", req.body);
+      const ext = path.extname(file.originalname);
+      const filename = req.body.id + ext;
+      done(null, filename);
+    },
+  }),
 });
+
+app.get("/01-practuce", (req, res) => {
+  res.render("01-practuce");
+});
+
+app.post("/01-practuce", upload.single("userfile"), (req, res) => {
+  console.log(req.file);
+  console.log(req.body);
+  res.render("img", { path: req.body.id });
+});
+
+// ↑실습
 
 app.get("/file", (req, res) => {
   res.render("file");
