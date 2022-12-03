@@ -9,27 +9,26 @@
   </head>
   
     <script>
-      function sendPost() {
-        var form = document.getElementById("form_info");
-        var formData = new FormData()
+      async function sendPost() {
+        const form = document.getElementById("form_info");
+        const formData = new FormData()
         // 1. 가상 공간에 form을 만든다
         
         formData.append("name", document.getElementById("name").value)
         // 2. 거기에 name을 추가폼안에 이름 가서 주석처리해보셈 어디서 가져오는지
    
-
         formData.append("userfile", form.userfile.files[0])
         // 3. 거기에 userFile을 추가
-        axios({
+        const response = await axios({
           method: "post",
           url: "/02-practuce",
           headers : {
             "Content-type" : "multipart/form-data"
           },
           data: formData,
-        }).then(function (res) {
-          document.querySelector("#result").innerHTML = res.data;
-        });
+         })
+        
+        document.querySelector("#result").innerHTML = response.data;
       }
     </script>
     <form    id="form_info"  >
