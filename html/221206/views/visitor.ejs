@@ -55,16 +55,8 @@
         <% } %>
     </table>
 
-    <!-- 
-    get : 조회
-    post : 데이터 생성, 삽입, insert
-    delete : 데이터 삭제 
-    patch, put : 데이터 수정 
-    -->
-
     <script>
         let update_tr;
-
 
         function update_visitor(){
             var form = document.getElementById("form_register");
@@ -89,7 +81,6 @@
             })
         }
 
-        
         function update_load(id, element){
             axios({
                 method: 'get',
