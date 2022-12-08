@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <form id="signin-box">
+      ID : <input id="id" /> <br /><br />
+      PW : <input id="pw" /><br /><br />
+      <button type="button" onclick="login()">로그인</button>
+    </form>
+
+    <div id="log_in">
+      <h1>a님 환영합니다.</h1>
+      <button onclick="logout()">로그아웃</button>
+    </div>
+
+    <div id="logout-box" class="scene flex">
+      <div id="mt-3" class="img_btns">
+        <a class="" href="">
+          <span>회원가입</span>
+        </a>
+        <a class="" href="/signin">
+          <span>로그인</span>
+        </a>
+      </div>
+    <script>
+      const login_O = document.getElementById("log_in");
+      const signin_O = document.getElementById("signin-box");
+      const logout_O = document.getElementById("logout-box")
+
+      login_O.style.display = "none";
+      logout_O.style.display = "none";
+
+      async function login() {
+        const response = await axios({
+          method: "post",
+          url: "/login",
+          data: {
+            id: signin_O.id.value,
+            pw: signin_O.pw.value,
+          },
+        });
+
+        if (response.data === "ok") {
+          alert("로그인 성공");
+          logout_O.style.display = "none";
+          signin_O.style.display = "none";
+          login_O.style.display = "block";
+        } else {
+          alert("로그인 실패");
+        }
+      }
+
+      async function logout() {
+        await axios({
+          method: "get",
+          url: "/logout",
+        });
+        alert("로그아웃 성공");
+        logout_O.style.display = "block";
+        signin_O.style.display = "none";
+        login_O.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
