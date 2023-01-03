@@ -32,3 +32,5 @@ const e2 = React.createElement;
 const domContainer2 = document.querySelector("#app2");
 const root2 = ReactDOM.createRoot(domContainer2);
 root2.render(e2(HelloWorldButton2));
+
+//Javascript XML = JSX 코드
